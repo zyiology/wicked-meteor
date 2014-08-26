@@ -1,0 +1,32 @@
+{% extends 'bookmark/base.html' %}
+{%load newfilters%}
+{% block title %}Bookmark{% endblock %}
+{%block body_block%}
+        {% if user.is_authenticated %}
+            {% if categories %}
+                <h1><strong>Categories</strong></h1>
+                  <div class="row">
+                    <ul class="list-group">
+                        {% for category in categories %}
+                        <!-- Following line changed to add an HTML hyperlink -->
+                        <li class="list-group-item"><a href="/bookmark/category/{{ category.url }}">{{ category.name }}</a></li>
+                        {% endfor %}
+                    </ul>
+                  </div>
+             {% else %}
+                  <strong>There are no categories present.</strong>
+             {% endif %}
+            <ul class="nav nav-pills">
+            <li><a href="/bookmark/restricted/">Restricted Page</a><br /></li>
+            <li><a href="/bookmark/add_category/">Add a New Category</a><br /></li>
+            <li><a href="/bookmark/logout/">Logout</a><br /></li>
+            </ul>
+        {% else %}
+            <div class="container-fluid">
+            <p style="display:block; line-height: 70px; width:100%; text-align:center; margin:0 auto;">
+            <button type="button" class="btn btn-lg btn-default"><a href="/bookmark/register/">Register Here</a></button></p><br></br>
+            <p style="display:block; line-height: 70px; width:100%; text-align:center; margin:0 auto;">
+            <button type="button" class="btn btn-lg btn-default"><a href="/bookmark/login/">Login</a></button><br></br>
+            </div>
+        {% endif %}  
+{%endblock%}

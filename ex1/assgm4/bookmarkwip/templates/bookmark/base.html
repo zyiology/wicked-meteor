@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--<title>Bookmark</title>
+
+    <!-- Bootstrap -->
+    <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+    <title>{% block title%}{% endblock%}</title>
+  </head>
+  <body>
+    <nav class="navbar navbar-inverse">
+      <div class="container">
+          <ul class="nav navbar-nav navbar-right">
+              {% if user.is_authenticated %}
+                <li class="navbar-text">Welcome, {{ user.username }}!</li>
+                <li class="navbar-link"><a href="/bookmark/logout/">Logout</a></li>
+              {% else %}
+                <li class="navbar-link"><a href="/bookmark/register/">Register</a></li>
+                <li class="navbar-link"><a href="/bookmark/login/">Login</a></li>
+              {% endif %}
+          </ul>
+          <ul class="nav navbar-nav navbar-left">
+            <a class="navbar-brand" href="/bookmark/">Bookmark</a>
+            {% if user.is_authenticated %}
+              <li class="navbar-link"><a href="/bookmark/restricted/">Restricted</a></li>
+              <li class="navbar-link"><a href="/bookmark/add_category/">Add Category</a></li>
+            {% endif %}
+          </ul>
+      </div>  
+      
+    </nav>  
+   
+    <div class="jumbotron">
+      <div class="container">
+        {% block body_block%}
+        {% endblock%}
+      </div>  
+    </div>        
+  
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+  </body>
+</html>
+
+                  

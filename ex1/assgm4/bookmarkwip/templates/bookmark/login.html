@@ -1,0 +1,24 @@
+{% extends 'bookmark/base.html' %}
+{%load newfilters%}
+{% block title %}Bookmark{% endblock %}
+
+        <!-- Is anyone getting tired of repeatedly entering the header over and over?? -->
+{%block body_block%}
+        <h1>Login to Bookmark</h1>
+
+        <form id="login_form" method="post" action="/bookmark/login/">
+          <div class="form-group">
+            {% csrf_token %}
+            <label for="username">Username</label>
+            <input type="text" class ="form-control" name="username" placeholder="Enter username" value="" size="50" />
+            <br />
+            <label for="password">Password</label>
+            <input type="password" class="form-control" name="password" placeholder="Enter password" value="" size="50" />
+            <br />
+
+            <input type="submit" value="submit" />
+          </div>
+        </form>
+
+{%endblock%}
+

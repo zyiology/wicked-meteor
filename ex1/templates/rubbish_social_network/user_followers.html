@@ -1,0 +1,13 @@
+{% block content %} 
+  {% if user_followers %} 
+     <ul>
+       {% for user in user_followers %} 
+       <li>
+         {{ user.username }}
+       </li> 
+       {% endfor %} 
+    </ul> 
+  {% else %} 
+  	You RETARD
+  {% endif %} 
+{% endblock %}
